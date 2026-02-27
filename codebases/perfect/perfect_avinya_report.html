@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avinya AI - Codebase Review</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkblue: '#0F172A',
+                        cardbg: '#1E293B',
+                        accent: '#38BDF8'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #0F172A; color: #F8FAFC; }
+        .critical { border-left: 4px solid #EF4444; }
+        .warning { border-left: 4px solid #F59E0B; }
+        .info { border-left: 4px solid #3B82F6; }
+        
+        /* Hidden input for preserving JSON history */
+        #history_data { display: none; }
+    </style>
+</head>
+<body class="font-sans antialiased">
+    
+    <!-- Header -->
+    <header class="bg-cardbg border-b border-gray-700 py-6 px-8 shadow-md">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div>
+                <h1 class="text-3xl font-bold text-white flex items-center gap-3">
+                    <i class="fas fa-shield-alt text-accent"></i> Avinya Report
+                </h1>
+                <p class="text-gray-400 mt-1">Generated: 2026-02-27 16:03 for <span class="text-accent font-semibold">perfect</span></p>
+            </div>
+            <div class="text-right">
+                <div class="text-5xl font-extrabold text-yellow-400">
+                    80
+                </div>
+                <div class="text-sm text-gray-400 uppercase tracking-wider mt-1">Health Score</div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto py-10 px-8 space-y-12">
+        
+        <!-- Summary Section -->
+        <section class="bg-cardbg p-8 rounded-xl shadow-lg">
+            <h2 class="text-2xl font-bold mb-4 border-b border-gray-700 pb-2"><i class="fas fa-chart-line mr-2"></i>Executive Summary</h2>
+            <p class="text-gray-300 leading-relaxed text-lg">This report reviews the health and security of the codebase for a project involving an Express.js server handling user data retrieval and discount calculations. Key issues include the presence of a hardcoded Stripe secret key in the configuration file, which poses a significant security risk. The overall architecture is well-structured but could benefit from further modularity improvements to enhance readability and maintainability.</p>
+            
+            <h3 class="text-xl font-bold mt-6 mb-3 text-accent"><i class="fas fa-sitemap mr-2"></i>Architecture Overview</h3>
+            <p class="text-gray-300 leading-relaxed">The codebase consists of an Express.js server handling REST API endpoints for user data retrieval and discount calculation. The `app.js` file acts as the main application logic, relying on services provided by `user_service.js`. Configurations are managed in `index.js`, ensuring that critical settings such as Stripe keys are properly set before starting the server.</p>
+        </section>
+
+        <!-- Syntax & Modularity -->
+        <section class="bg-cardbg p-8 rounded-xl shadow-lg">
+            <div class="flex justify-between items-center border-b border-gray-700 pb-2 mb-6">
+                <h2 class="text-2xl font-bold"><i class="fas fa-code mr-2"></i>Style & Modularity</h2>
+            </div>
+            
+            <div class="mb-6 p-4 bg-gray-800 rounded-lg">
+                <h3 class="font-semibold text-gray-200 mb-2">Overall Consistency</h3>
+                <p class="text-gray-400">Overall codebase follows consistent style conventions. However, there are opportunities to enhance modularity by refactoring some of the components into more specialized modules.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <div class="bg-gray-800 rounded-lg p-5 border border-gray-700">
+                    <div class="flex justify-between items-start mb-3">
+                        <h4 class="font-mono text-sm text-accent break-all">/home/nullsec/Desktop/hacking/hackathon/avinya/codebases/perfect/app.js</h4>
+                        <span class="px-2 py-1 rounded text-xs font-bold bg-gray-700 text-green-400" title="Modularity Score">
+                            8/10
+                        </span>
+                    </div>
+                    <p class="text-sm text-gray-300 mb-3 border-b border-gray-700 pb-2"><span class="font-semibold">Style:</span> No naming convention issues found.</p>
+                    <p class="text-sm text-gray-400"><span class="font-semibold">Modularity:</span> The file has clear route definitions but could benefit from breaking down some logic into smaller functions or separate files to improve readability and maintainability.</p>
+                </div>
+                
+                <div class="bg-gray-800 rounded-lg p-5 border border-gray-700">
+                    <div class="flex justify-between items-start mb-3">
+                        <h4 class="font-mono text-sm text-accent break-all">/home/nullsec/Desktop/hacking/hackathon/avinya/codebases/perfect/user_service.js</h4>
+                        <span class="px-2 py-1 rounded text-xs font-bold bg-gray-700 text-green-400" title="Modularity Score">
+                            9/10
+                        </span>
+                    </div>
+                    <p class="text-sm text-gray-300 mb-3 border-b border-gray-700 pb-2"><span class="font-semibold">Style:</span> No naming convention issues found.</p>
+                    <p class="text-sm text-gray-400"><span class="font-semibold">Modularity:</span> The file is well-structured with clear functions for different operations. It could further improve modularity by separating concerns into more granular components.</p>
+                </div>
+                
+                <div class="bg-gray-800 rounded-lg p-5 border border-gray-700">
+                    <div class="flex justify-between items-start mb-3">
+                        <h4 class="font-mono text-sm text-accent break-all">/home/nullsec/Desktop/hacking/hackathon/avinya/codebases/perfect/index.js</h4>
+                        <span class="px-2 py-1 rounded text-xs font-bold bg-gray-700 text-yellow-400" title="Modularity Score">
+                            7/10
+                        </span>
+                    </div>
+                    <p class="text-sm text-gray-300 mb-3 border-b border-gray-700 pb-2"><span class="font-semibold">Style:</span> No naming convention issues found.</p>
+                    <p class="text-sm text-gray-400"><span class="font-semibold">Modularity:</span> The file contains essential configuration but could be split into smaller files for better organization and easier maintenance.</p>
+                </div>
+                
+            </div>
+        </section>
+
+        <!-- Logical Flaws & Vulnerabilities -->
+        <section class="bg-cardbg p-8 rounded-xl shadow-lg border-t-4 border-red-500">
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                <i class="fas fa-bug text-red-500"></i> Vulnerabilities & Logical Flaws
+            </h2>
+            
+            
+                <div class="space-y-6">
+                    
+                    <div class="critical bg-gray-800 p-6 rounded-r-lg shadow-sm">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-white">Hardcoded Stripe Secret Key in Configuration File</h3>
+                            <span class="px-3 py-1 rounded-full text-xs font-bold uppercase
+                                bg-red-900/50 text-red-400
+                                ">
+                                Critical
+                            </span>
+                        </div>
+                        <p class="text-gray-300 mb-4">The `index.js` configuration file contains a hardcoded Stripe secret key, which is a significant security risk. This secret should not be exposed within the codebase or stored in plain text.</p>
+                        
+                        <div class="mb-4">
+                            <h4 class="text-sm font-semibold text-gray-400 mb-2 uppercase tracking-wide">Affected Files</h4>
+                            <div class="flex flex-wrap gap-2">
+                                
+                                <span class="bg-gray-700 px-2 py-1 rounded text-xs font-mono text-gray-300">/home/nullsec/Desktop/hacking/hackathon/avinya/codebases/perfect/index.js</span>
+                                
+                            </div>
+                        </div>
+
+                        <div class="bg-emerald-900/20 border border-emerald-800/50 p-4 rounded-md">
+                            <h4 class="text-sm font-semibold text-emerald-400 mb-1 flex items-center gap-2">
+                                <i class="fas fa-wrench"></i> Recommendation
+                            </h4>
+                            <p class="text-sm text-emerald-200/80">The Stripe secret key must be securely stored using environment variables and never committed to version control. The `index.js` file should read the Stripe key from a secure source before starting the server.</p>
+                        </div>
+                    </div>
+                    
+                </div>
+            
+        </section>
+
+    </main>
+
+    <!-- Hidden History Blob -->
+    <textarea id="history_data" aria-hidden="true">[{"health_score": 80, "executive_summary": "This report reviews the health and security of the codebase for a project involving an Express.js server handling user data retrieval and discount calculations. Key issues include the presence of a hardcoded Stripe secret key in the configuration file, which poses a significant security risk. The overall architecture is well-structured but could benefit from further modularity improvements to enhance readability and maintainability.", "key_vulnerabilities": [{"severity": "Critical", "title": "Hardcoded Stripe Secret Key in Configuration File", "description": "The `index.js` configuration file contains a hardcoded Stripe secret key, which is a significant security risk. This secret should not be exposed within the codebase or stored in plain text.", "affected_files": ["/home/nullsec/Desktop/hacking/hackathon/avinya/codebases/perfect/index.js"], "recommendation": "The Stripe secret key must be securely stored using environment variables and never committed to version control. The `index.js` file should read the Stripe key from a secure source before starting the server."}], "style_and_modularity": {"reviews": [{"filepath": "/home/nullsec/Desktop/hacking/hackathon/avinya/codebases/perfect/app.js", "style_issues": "No naming convention issues found.", "modularity_score": 8, "modularity_feedback": "The file has clear route definitions but could benefit from breaking down some logic into smaller functions or separate files to improve readability and maintainability."}, {"filepath": "/home/nullsec/Desktop/hacking/hackathon/avinya/codebases/perfect/user_service.js", "style_issues": "No naming convention issues found.", "modularity_score": 9, "modularity_feedback": "The file is well-structured with clear functions for different operations. It could further improve modularity by separating concerns into more granular components."}, {"filepath": "/home/nullsec/Desktop/hacking/hackathon/avinya/codebases/perfect/index.js", "style_issues": "No naming convention issues found.", "modularity_score": 7, "modularity_feedback": "The file contains essential configuration but could be split into smaller files for better organization and easier maintenance."}], "overall_style_consistency": "Overall codebase follows consistent style conventions. However, there are opportunities to enhance modularity by refactoring some of the components into more specialized modules."}, "architecture_summary": "The codebase consists of an Express.js server handling REST API endpoints for user data retrieval and discount calculation. The `app.js` file acts as the main application logic, relying on services provided by `user_service.js`. Configurations are managed in `index.js`, ensuring that critical settings such as Stripe keys are properly set before starting the server.", "timestamp": "2026-02-27T16:03:07.519417"}]</textarea>
+
+</body>
+</html>
