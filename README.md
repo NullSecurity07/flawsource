@@ -1,6 +1,6 @@
 <div align="center">
-  <img src="https://img.icons8.com/nolan/256/shield.png" alt="Avinya Logo" width="120" />
-  <h1>🛡️ Avinya Code Reviewer</h1>
+  <img src="https://img.icons8.com/nolan/256/shield.png" alt="flawsource Logo" width="120" />
+  <h1>🛡️ Flowsource Code Reviewer</h1>
   <p><strong>Local AI-Powered Automated Code Auditing CLI</strong></p>
 
   <p>
@@ -13,7 +13,7 @@
 
 ---
 
-**Avinya** is a privacy-first, CLI-based code reviewer that utilizes a multi-agent system powered by **Ollama** and **CrewAI**. It performs structural and logic-based code audits, transforming local repositories into comprehensive, versioned HTML security and code quality reports without your code ever leaving your machine.
+**Flowsource** is a privacy-first, CLI-based code reviewer that utilizes a multi-agent system powered by **Ollama** and **CrewAI**. It performs structural and logic-based code audits, transforming local repositories into comprehensive, versioned HTML security and code quality reports without your code ever leaving your machine.
 
 ## ✨ Key Features
 
@@ -25,7 +25,7 @@
 
 ## 📦 Dependencies
 
-Avinya relies on a combination of Python libraries and system-level tools to perform complete code analysis:
+flawsource relies on a combination of Python libraries and system-level tools to perform complete code analysis:
 
 ### System Requirements
 *   **[Python 3.8+](https://www.python.org/):** Core runtime.
@@ -44,8 +44,8 @@ Ensure these libraries are installed in your environment:
 
 1. **Clone the repository:**
    ```bash
-   git clone <repository_url> avinya
-   cd avinya
+   git clone https://github.com/NullSecurity07/flawsource
+   cd flawsource
    ```
 
 2. **Set up the Virtual Environment:**
@@ -73,7 +73,7 @@ Ensure these libraries are installed in your environment:
 
 ## 🚀 Usage
 
-Run Avinya pointing directly to the target local codebase directory you wish to scan:
+Run flawsource pointing directly to the target local codebase directory you wish to scan:
 
 ```bash
 python main.py /path/to/your/codebase
@@ -92,14 +92,14 @@ python main.py /path/to/your/codebase
 python main.py ./codebases/flawed -v
 ```
 
-1. Avinya hashes the directory. 
+1. flawsource hashes the directory. 
 2. Deterministic tools (regex for secrets/APIs, `flake8`/`eslint` for syntax) pre-process the codebase.
 3. The AI Crew consumes context and analyzes the code.
-4. The tool automatically opens `<folder_name>_avinya_report.html` in your default browser.
+4. The tool automatically opens `<folder_name>_flawsource_report.html` in your default browser.
 
 ## 🏗️ Architecture (The "Brain")
 
-Avinya divides the cognitive workload among specialized AI personas:
+flawsource divides the cognitive workload among specialized AI personas:
 
 | Agent | Responsibility | Output |
 | :--- | :--- | :--- |
