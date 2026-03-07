@@ -1,6 +1,6 @@
 <div align="center">
-  <img src="https://img.icons8.com/nolan/256/shield.png" alt="flawsource Logo" width="120" />
-  <h1>🛡️ Flowsource Code Reviewer</h1>
+  <img src="https://img.icons8.com/nolan/256/shield.png" alt="Avinya Logo" width="120" />
+  <h1>🛡️ Avinya Code Reviewer</h1>
   <p><strong>Local AI-Powered Automated Code Auditing CLI</strong></p>
 
   <p>
@@ -13,7 +13,7 @@
 
 ---
 
-**Flowsource** is a privacy-first, CLI-based code reviewer that utilizes a multi-agent system powered by **Ollama** and **CrewAI**. It performs structural and logic-based code audits, transforming local repositories into comprehensive, versioned HTML security and code quality reports without your code ever leaving your machine.
+**Avinya** is a privacy-first, CLI-based code reviewer that utilizes a multi-agent system powered by **Ollama** and **CrewAI**. It performs structural and logic-based code audits, transforming local repositories into comprehensive, versioned HTML security and code quality reports without your code ever leaving your machine.
 
 ## ✨ Key Features
 
@@ -22,10 +22,12 @@
 *   **🤖 Multi-Agent Crew:** Specialized agents (Summarizer, Syntax Reviewer, Logic Analyzer, Orchestrator) work in sequence for highly contextual validation.
 *   **📊 Comprehensive Reporting:** Generates a visually appealing, single-file HTML dashboard with code health scores, style consistency charts, and color-coded severity metrics.
 *   **⚡ Smart Caching:** Utilizes SHA-256 directory hashing to avoid redundant scans. Cached reports open instantly if code hasn't changed.
+*   **🛡️ Dependency Scanning:** Fully offline vulnerability scanner for package dependencies using the Open Source Vulnerabilities (OSV) database.
+*   **📚 CWE Knowledge Base:** Built-in RAG system mapping logical vulnerabilities with Common Weakness Enumerations (CWEs) for deeper contextual reporting.
 
 ## 📦 Dependencies
 
-flawsource relies on a combination of Python libraries and system-level tools to perform complete code analysis:
+Avinya relies on a combination of Python libraries and system-level tools to perform complete code analysis:
 
 ### System Requirements
 *   **[Python 3.8+](https://www.python.org/):** Core runtime.
@@ -44,8 +46,8 @@ Ensure these libraries are installed in your environment:
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/NullSecurity07/flawsource
-   cd flawsource
+   git clone <repository_url> avinya
+   cd avinya
    ```
 
 2. **Set up the Virtual Environment:**
@@ -73,7 +75,7 @@ Ensure these libraries are installed in your environment:
 
 ## 🚀 Usage
 
-Run flawsource pointing directly to the target local codebase directory you wish to scan:
+Run Avinya pointing directly to the target local codebase directory you wish to scan:
 
 ```bash
 python main.py /path/to/your/codebase
@@ -92,19 +94,21 @@ python main.py /path/to/your/codebase
 python main.py ./codebases/flawed -v
 ```
 
-1. flawsource hashes the directory. 
+1. Avinya hashes the directory. 
 2. Deterministic tools (regex for secrets/APIs, `flake8`/`eslint` for syntax) pre-process the codebase.
 3. The AI Crew consumes context and analyzes the code.
-4. The tool automatically opens `<folder_name>_flawsource_report.html` in your default browser.
+4. The tool automatically opens `<folder_name>_avinya_report.html` in your default browser.
 
 ## 🏗️ Architecture (The "Brain")
 
-flawsource divides the cognitive workload among specialized AI personas:
+Avinya divides the cognitive workload among specialized AI personas:
 
 | Agent | Responsibility | Output |
 | :--- | :--- | :--- |
 | 🗺️ **Summarizer** | Maps contextual logic, purpose, and operations per file. | JSON map of file logic |
 | 🔍 **API / Regex Tools** | Extracts API routes, hardcoded URLs, IPs, and secrets. | Raw list of exposed endpoints and secrets |
+| 📦 **OSV Scanner** | Offline parser verifying local dependencies against OSV databases. | Known vulnerability aliases and details |
+| 📚 **Knowledge Base** | Local retrieval augmented generation (RAG) system matching logic flaws against weakness enumerations. | Mitigation strategies and contexts |
 | 💅 **Syntax Reviewer** | Audits code style, modularity, and checks linter compliance. | Review of architectural consistency |
 | 🕵️ **Logic Analyzer** | Acts as a red-teamer. Locates logical flaws and race conditions. | Highly-critical vulnerability report |
 | 👨‍💼 **Orchestrator** | Quality control manager. Filters out vague findings. | Consolidated, verified Pydantic object |
